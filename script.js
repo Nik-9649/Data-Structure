@@ -60,7 +60,7 @@ console.log(guests);
 const guests1 = restaurant.numberOfGuests || 0;
 console.log(guests1);
 console.log(`---AND---`);
-
+console.log(0 && 'nik');
 
 /*
 const add = function(...numbers) {
