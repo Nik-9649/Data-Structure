@@ -61,6 +61,16 @@ const guests1 = restaurant.numberOfGuests || 0;
 console.log(guests1);
 console.log(`---AND---`);
 console.log(0 && 'nik');
+console.log(7 && 'nik');
+console.log('Hello' && 23 && null && 'nik');
+
+
+// Practical Example
+if(restaurant.orderPizza) {
+  restaurant.orderPizza(`mushroom`, `spnich`);
+}
+
+restaurant.orderPizza && restaurant.orderPizza(`mushroom`, `olives`);
 
 /*
 const add = function(...numbers) {
@@ -155,7 +165,7 @@ const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
 
 // Iterables
-const me = 'Usman';
+const me = 'nik';
 console.log(...me);
 
 
