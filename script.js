@@ -45,7 +45,9 @@ const restaurant = {
   }
 };
 
-// restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach'); 
+
+/*
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach'); 
 
 // Short Circuiting 
 console.log(`---OR---`);
@@ -71,6 +73,17 @@ if(restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza(`mushroom`, `olives`);
+*/
+
+// The Nullish Coalescing operator (??)
+restaurant.numberOfGuests = 0;
+const guests = restaurant.numberOfGuests || 10;
+console.log(guests);
+
+// Nullish: null values and undefined values (NOT 0 or '')
+const correctGuests = restaurant.numberOfGuests ?? 10;
+console.log(correctGuests);
+
 
 /*
 const add = function(...numbers) {
