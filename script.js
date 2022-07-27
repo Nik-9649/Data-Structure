@@ -73,7 +73,6 @@ if(restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza(`mushroom`, `olives`);
-*/
 
 // The Nullish Coalescing operator (??)
 restaurant.numberOfGuests = 0;
@@ -83,7 +82,39 @@ console.log(guests);
 // Nullish: null values and undefined values (NOT 0 or '')
 const correctGuests = restaurant.numberOfGuests ?? 10;
 console.log(correctGuests);
+*/
 
+// Logical Assingment operator
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+}
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Via Rossi',
+}
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// OR Assingment Operator
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// console.log(rest1);
+// console.log(rest2);
+
+// AND Assingment Operator
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+// Nullish Coalescing Operator Assignment
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1);
+console.log(rest2);
 
 /*
 const add = function(...numbers) {
