@@ -185,8 +185,6 @@ restaurant.orderDelivery(
 )
 
 
-
-
 // Spreading Arrays
 const arr = [7, 8, 9, 10,];
 const newBadArr = [1, 2, 3, 4, 5, 6, arr[0], arr[1], arr[2], arr[3],];
