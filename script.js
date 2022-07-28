@@ -46,6 +46,20 @@ const restaurant = {
 };
 
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  // console.log(...item);
+  console.log(`${i + 1}: ${el}`);
+}
+
+
+// console.log([...menu.entries()]);
+
 /*
 restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach'); 
 
@@ -82,7 +96,7 @@ console.log(guests);
 // Nullish: null values and undefined values (NOT 0 or '')
 const correctGuests = restaurant.numberOfGuests ?? 10;
 console.log(correctGuests);
-*/
+
 
 // Logical Assingment operator
 const rest1 = {
@@ -116,7 +130,7 @@ rest2.numGuests ??= 10;
 console.log(rest1);
 console.log(rest2);
 
-/*
+
 const add = function(...numbers) {
   // console.log(...numbers);
   let sum = 0;
@@ -169,106 +183,104 @@ restaurant.orderPasta(...ingredients);
 
 
 
-restaurant.orderDelivery(
-  {
-    time: `23:30`,
-    address: `Via del Sole, 21`,
-    mainIndex: 1,
-    starterIndex: 3,
-  }
-  )
-  
-  restaurant.orderDelivery(
-    {
-      address: `Via del Sole, 21`,
-    }
-    )
-    
-    
-    // Spreading Arrays
-    const arr = [7, 8, 9, 10,];
-    const newBadArr = [1, 2, 3, 4, 5, 6, arr[0], arr[1], arr[2], arr[3],];
-    console.log(`New Bad Arr:`, newBadArr);
-    
-    const newGoodArr = [1, 2, 3, 4, 5, 6, ...arr];
-    console.log(`New Good Arr:`, newGoodArr);
-    
-    console.log(...newGoodArr);
-    
-    const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-    console.log(newMenu);
-    
-    // Copying Array
-    const mainMenuCopy = [...restaurant.mainMenu];
-    console.log(mainMenuCopy);
-    
-    // Joining two arrays
-    const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-    console.log(menu);
-    
-    // Iterables
-    const me = 'nik';
-    console.log(...me);
-    
-    
-    
-    // Destructuring objects
-    const {name, openingHours, categories} = restaurant;
-    console.log(name, openingHours, categories);
-    
-    // Renaming destructured objects
-    const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-    console.log(restaurantName, hours, tags);
-    
-    // Setting default objects for dectructured categories
-    const {menu = [], starterMenu = [], mainMenu = []} = restaurant;
-    console.log(menu, starterMenu, mainMenu);
-    
-    // Mutating objects 
-    let a = 111;
-    let b = 999;
-    const obj = {a: 12, b: 34, c:44};
-    ({a, b} = obj);
-    console.log(a, b);
-    
-    // Destructuring nested objects
-    // Renaming the inner object
-    const {fri: {open: o, close: c}} = openingHours;
-    console.log(o, c);
-    
-    
-    let [first, second] = restaurant.categories;
-    console.log(first, second);
-    
-    let [main, , secondordary] = restaurant.categories;
-    let temp = main;
-    main = secondordary;
-    secondordary = temp;
-    console.log(main, secondordary);
-    
-    [main, secondordary] = [secondordary, main];
-    console.log(`Destructuring version:`, main, secondordary);
-    
-    
-    
-    // Receiveing 2 return values from a function usinng Data Destructuring
-    console.log(restaurant.order(2, 0));
-    
-    const [starter, main] = restaurant.order(2, 0);
-    console.log(starter +',', main);
-    
-    // Receving values from a nested array
-    const nested = [2, 5, [3, 13]];
-    const [i, , j] = nested;
-    console.log(i, j);
-    
-    const [x, , [y, z]] = nested;
-    console.log(x, y, z);
-    
-    // Destructuring values that dont exist in the array
-    let [t, v, a] = [8, 15];
-    console.log(t, v, a);
-    
-    [t=1, v=1, a=1] = [8, 15];
-    console.log(t, v, a);
-    */
+restaurant.orderDelivery({
+  time: `23:30`,
+  address: `Via del Sole, 21`,
+  mainIndex: 1,
+  starterIndex: 3,
+}
+)
+
+restaurant.orderDelivery({
+  address: `Via del Sole, 21`,
+}
+)
+
+
+// Spreading Arrays
+const arr = [7, 8, 9, 10,];
+const newBadArr = [1, 2, 3, 4, 5, 6, arr[0], arr[1], arr[2], arr[3],];
+console.log(`New Bad Arr:`, newBadArr);
+
+const newGoodArr = [1, 2, 3, 4, 5, 6, ...arr];
+console.log(`New Good Arr:`, newGoodArr);
+
+console.log(...newGoodArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copying Array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// Joining two arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Iterables
+const me = 'nik';
+console.log(...me);
+
+
+
+// Destructuring objects
+const {name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+
+// Renaming destructured objects
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// Setting default objects for dectructured categories
+const {menu = [], starterMenu = [], mainMenu = []} = restaurant;
+console.log(menu, starterMenu, mainMenu);
+
+// Mutating objects 
+let a = 111;
+let b = 999;
+const obj = {a: 12, b: 34, c:44};
+({a, b} = obj);
+console.log(a, b);
+
+// Destructuring nested objects
+// Renaming the inner object
+const {fri: {open: o, close: c}} = openingHours;
+console.log(o, c);
+
+
+let [first, second] = restaurant.categories;
+console.log(first, second);
+
+let [main, , secondordary] = restaurant.categories;
+let temp = main;
+main = secondordary;
+secondordary = temp;
+console.log(main, secondordary);
+
+[main, secondordary] = [secondordary, main];
+console.log(`Destructuring version:`, main, secondordary);
+
+
+
+// Receiveing 2 return values from a function usinng Data Destructuring
+console.log(restaurant.order(2, 0));
+
+const [starter, main] = restaurant.order(2, 0);
+console.log(starter +',', main);
+
+// Receving values from a nested array
+const nested = [2, 5, [3, 13]];
+const [i, , j] = nested;
+console.log(i, j);
+
+const [x, , [y, z]] = nested;
+console.log(x, y, z);
+
+// Destructuring values that dont exist in the array
+let [t, v, a] = [8, 15];
+console.log(t, v, a);
+
+[t=1, v=1, a=1] = [8, 15];
+console.log(t, v, a);
+*/
