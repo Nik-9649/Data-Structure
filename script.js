@@ -57,7 +57,49 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
+// ES6 Object literal Enhancment
+// 1.1 Older way to store an object inside another object
 
+const oldObj = {
+  oldName: `nik`,
+  inheritence:{
+    property: 3,
+  }
+
+}
+
+// 1.2 ES6 made enhanced way of storing an object inside another object
+const inheritence = {
+property: 3,
+};
+
+const obj = {
+  name: `nik`,
+  inheritence: inheritence,
+  // or
+  inheritence, 
+}
+
+
+console.log(obj);
+// 2.1 Older way to store a function inside an object
+const functionObj = {
+  logToTheConsole: function() {
+    console.log(`test`);
+  }
+}
+
+// 2.2 ES6 way to store a function inside an object
+const es6FunctionObj = {
+  logToTheConsole() {
+    console.log(`ES6 function test`);
+  }
+}
+
+// Logging and Executing all the example functions 
+console.log(oldObj, obj);
+functionObj.logToTheConsole();
+es6FunctionObj.logToTheConsole();
 // console.log([...menu.entries()]);
 
 /*
