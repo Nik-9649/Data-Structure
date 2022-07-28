@@ -239,5 +239,3 @@ while(i < populations1.length) {
 
 console.log(percentages3);
 */
-
-
