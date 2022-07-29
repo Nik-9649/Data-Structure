@@ -1,6 +1,6 @@
 # **Data Structure repo 27/July/2022**
 
-## **Script file includes all the pratices which includes:**
+## **[Script file](https://github.com/Nik-9649/Data-Structure/blob/main/script.js/) includes all the pratices which includes:**
 (_most of the use case is commented out to avoid conflict_)
 
 
