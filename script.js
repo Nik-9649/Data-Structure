@@ -48,121 +48,178 @@ const restaurant = {
   }
 };
 
-// 11: Looping Objects, Object keys and Entiries
-// 11.1: Property names
-const properties = Object.keys(openingHours);
-console.log(properties);
-let openStr = `We are open on ${properties.length} days: `;
-
-for(const day of properties) {
-  openStr += `${day}, `;
-}
-
-console.log(openStr);
-
-// 11.2: Property values
-const values = Object.values(openingHours);
-// console.log(values);
-
-// 11.3: Entrie object
-const entries = Object.entries(openingHours);
-// console.log(entries);
-
-// 11.3.1: [key, value]
-for(const [key, {open, close}] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}!`);
-}
-
 /*
-// Optional chaining
 
-// Checking for undefined property
-if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
-// Checking for undefined property with optional chaining (?.)
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open);
 
-// Example 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-for(const day of days) {
-  // console.log(day);
-  const open = restaurant.openingHours[day]?.open ?? `closed`;
-  console.log(`On ${day}, we open at ${open}!`);
+
+// 1: Destructuring objects
+const {name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+
+// 1.1: Renaming destructured objects
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// 1.2: Setting default objects for dectructured categories
+const {menu = [], starterMenu = [], mainMenu = []} = restaurant;
+console.log(menu, starterMenu, mainMenu);
+
+// 1.3: Mutating objects 
+let a = 111;
+let b = 999;
+const obj = {a: 12, b: 34, c:44};
+({a, b} = obj);
+console.log(a, b);
+
+// 2: Destructuring nested objects
+// 2.1: Renaming the inner object
+const {fri: {open: o, close: c}} = openingHours;
+console.log(o, c);
+
+
+let [first, second] = restaurant.categories;
+console.log(first, second);
+
+let [main, , secondordary] = restaurant.categories;
+let temp = main;
+main = secondordary;
+secondordary = temp;
+console.log(main, secondordary);
+
+[main, secondordary] = [secondordary, main];
+console.log(`Destructuring version:`, main, secondordary);
+
+
+
+// 3: Receiveing 2 return values from a function usinng Data Destructuring
+console.log(restaurant.order(2, 0));
+
+const [starter, main] = restaurant.order(2, 0);
+console.log(starter +',', main);
+
+// 4: Receving values from a nested array
+const nested = [2, 5, [3, 13]];
+const [i, , j] = nested;
+console.log(i, j);
+
+const [x, , [y, z]] = nested;
+console.log(x, y, z);
+
+// 5: Destructuring values that dont exist in the array
+let [t, v, a] = [8, 15];
+console.log(t, v, a);
+
+[t=1, v=1, a=1] = [8, 15];
+console.log(t, v, a);
+
+// 6: Using spread operator with objects
+const newRestaurant = {
+  foundingYear: 1998,
+  ...restaurant,
+  founder: 'Guillermo',
 }
 
-// Optional chaining for methods
-console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
-console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
+console.log(newRestaurant);
 
-// optional chaining for arrays
-const users = [{name: `nik`, email: `nik@gmail.com`}];
-console.log(users[0]?.name ?? `array is empty`);
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Restorante Roma';
+console.log(newRestaurant.name);
+console.log(restaurantCopy.name);
 
-const emptyUsers = [];
-console.log(emptyUsers[0]?.email ?? `array is empty`);
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// Real world example
+const ingredients = [
+  prompt('Please pass in the first ingredient of your pasta'),
+  prompt('Please pass in the second ingredient of your pasta'),
+  prompt('Please pass in the third ingredient of your pasta'),  
+];
+restaurant.orderPasta(...ingredients);
 
-for (const item of menu) {
-  console.log(item);
+
+
+restaurant.orderDelivery({
+  time: `23:30`,
+  address: `Via del Sole, 21`,
+  mainIndex: 1,
+  starterIndex: 3,
 }
+)
 
-for (const [i, el] of menu.entries()) {
-  // console.log(...item);
-  console.log(`${i + 1}: ${el}`);
+restaurant.orderDelivery({
+  address: `Via del Sole, 21`,
 }
+)
 
-// ES6 Object literal Enhancment
-// 1.1 Older way to store an object inside another object
 
-const oldObj = {
-  oldName: `nik`,
-  inheritence:{
-    property: 3,
+// 6.1: Spreading Arrays
+const arr = [7, 8, 9, 10,];
+const newBadArr = [1, 2, 3, 4, 5, 6, arr[0], arr[1], arr[2], arr[3],];
+
+const newGoodArr = [1, 2, 3, 4, 5, 6, ...arr];
+console.log(`New Good Arr:`, newGoodArr);
+
+console.log(...newGoodArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// 6.2: Copying Array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// 6.3: Joining two arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// 6.4: Iterables
+const me = 'nik';
+console.log(...me);
+
+// 7: Rest operator
+
+// Spread opererator because using on the RIGHT side of the =
+const arr = [1, 2, ...[3, 4]];
+
+// Rest operator because using on the left side of the =
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6, 7];
+console.log(a, b, ...others);
+
+// 7.1: Using the Rest operator on both sides of the =
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, ...otherFood);
+
+// 7.2: Using the Rest operator on objects
+const {sat, ...weekdays} = restaurant.openingHours;
+console.log(weekdays);
+
+// 8: The Nullish Coalescing operator (??)
+restaurant.numberOfGuests = 0;
+const guests = restaurant.numberOfGuests || 10;
+console.log(guests);
+
+// 8.1: Nullish: null values and undefined values (NOT 0 or '')
+const correctGuests = restaurant.numberOfGuests ?? 10;
+console.log(correctGuests);
+
+// 8.2: Nullish Coalescing Operator Assignment
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1);
+console.log(rest2);
+
+
+const add = function(...numbers) {
+  // console.log(...numbers);
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
   }
-
-}
-
-// 1.2 ES6 made enhanced way of storing an object inside another object
-const inheritence = {
-property: 3,
+  console.log(sum);
 };
+add(1, 2 ,4 , 5, 7, 8, 9, 10);
 
-const obj = {
-  name: `nik`,
-  inheritence: inheritence,
-  // or
-  inheritence, 
-}
-
-
-console.log(obj);
-// 2.1 Older way to store a function inside an object
-const functionObj = {
-  logToTheConsole: function() {
-    console.log(`test`);
-  }
-}
-
-// 2.2 ES6 way to store a function inside an object
-const es6FunctionObj = {
-  logToTheConsole() {
-    console.log(`ES6 function test`);
-  }
-}
-
-// Logging and Executing all the example functions 
-console.log(oldObj, obj);
-functionObj.logToTheConsole();
-es6FunctionObj.logToTheConsole();
-
-
-// console.log([...menu.entries()]);
-
-restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach'); 
-
-// Short Circuiting 
+// 9: Short Circuiting 
 console.log(`---OR---`);
 console.log(3 || 'Short circut');
 console.log('' || 'Short circuiting');
@@ -215,172 +272,118 @@ const rest2 = {
 rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<ANONYMOUS>';
 
-// The Nullish Coalescing operator (??)
-restaurant.numberOfGuests = 0;
-const guests = restaurant.numberOfGuests || 10;
-console.log(guests);
-
-// Nullish: null values and undefined values (NOT 0 or '')
-const correctGuests = restaurant.numberOfGuests ?? 10;
-console.log(correctGuests);
-
-// Nullish Coalescing Operator Assignment
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
-console.log(rest1);
-console.log(rest2);
-
-
-const add = function(...numbers) {
-  // console.log(...numbers);
-  let sum = 0;
-  for(let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-};
-add(1, 2 ,4 , 5, 7, 8, 9, 10);
-
-
-// Spread opererator because using on the RIGHT side of the =
-const arr = [1, 2, ...[3, 4]];
-
-// Rest operator because using on the left side of the =
-const [a, b, ...others] = [1, 2, 3, 4, 5, 6, 7];
-console.log(a, b, ...others);
-
-// Using the Rest operator on both sides of the =
-const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, risotto, ...otherFood);
-
-// Using the Rest operator on objects
-const {sat, ...weekdays} = restaurant.openingHours;
-console.log(weekdays);
-
-
-// Using spread operator with objects
-const newRestaurant = {
-  foundingYear: 1998,
-  ...restaurant,
-  founder: 'Guillermo',
-}
-
-console.log(newRestaurant);
-
-const restaurantCopy = {...restaurant};
-restaurantCopy.name = 'Restorante Roma';
-console.log(newRestaurant.name);
-console.log(restaurantCopy.name);
-
-
-// Real world example
-const ingredients = [
-  prompt('Please pass in the first ingredient of your pasta'),
-  prompt('Please pass in the second ingredient of your pasta'),
-  prompt('Please pass in the third ingredient of your pasta'),  
-];
-restaurant.orderPasta(...ingredients);
-
-
-
-restaurant.orderDelivery({
-  time: `23:30`,
-  address: `Via del Sole, 21`,
-  mainIndex: 1,
-  starterIndex: 3,
-}
-)
-
-restaurant.orderDelivery({
-  address: `Via del Sole, 21`,
-}
-)
-
-
-// Spreading Arrays
-const arr = [7, 8, 9, 10,];
-const newBadArr = [1, 2, 3, 4, 5, 6, arr[0], arr[1], arr[2], arr[3],];
 console.log(`New Bad Arr:`, newBadArr);
 
-const newGoodArr = [1, 2, 3, 4, 5, 6, ...arr];
-console.log(`New Good Arr:`, newGoodArr);
+// 10: ES6 Object literal Enhancment
+// 1.1 Older way to store an object inside another object
 
-console.log(...newGoodArr);
+const oldObj = {
+  oldName: `nik`,
+  inheritence:{
+    property: 3,
+  }
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+}
 
-// Copying Array
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
+// 1.2 ES6 made enhanced way of storing an object inside another object
+const inheritence = {
+property: 3,
+};
 
-// Joining two arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-
-// Iterables
-const me = 'nik';
-console.log(...me);
-
-
-
-// Destructuring objects
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
-
-// Renaming destructured objects
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
-
-// Setting default objects for dectructured categories
-const {menu = [], starterMenu = [], mainMenu = []} = restaurant;
-console.log(menu, starterMenu, mainMenu);
-
-// Mutating objects 
-let a = 111;
-let b = 999;
-const obj = {a: 12, b: 34, c:44};
-({a, b} = obj);
-console.log(a, b);
-
-// Destructuring nested objects
-// Renaming the inner object
-const {fri: {open: o, close: c}} = openingHours;
-console.log(o, c);
+const obj = {
+  name: `nik`,
+  inheritence: inheritence,
+  // or
+  inheritence, 
+}
 
 
-let [first, second] = restaurant.categories;
-console.log(first, second);
+console.log(obj);
+// 2.1 Older way to store a function inside an object
+const functionObj = {
+  logToTheConsole: function() {
+    console.log(`test`);
+  }
+}
 
-let [main, , secondordary] = restaurant.categories;
-let temp = main;
-main = secondordary;
-secondordary = temp;
-console.log(main, secondordary);
+// 2.2 ES6 way to store a function inside an object
+const es6FunctionObj = {
+  logToTheConsole() {
+    console.log(`ES6 function test`);
+  }
+}
 
-[main, secondordary] = [secondordary, main];
-console.log(`Destructuring version:`, main, secondordary);
+// Logging and Executing all the example functions 
+console.log(oldObj, obj);
+functionObj.logToTheConsole();
+es6FunctionObj.logToTheConsole();
 
 
+// console.log([...menu.entries()]);
 
-// Receiveing 2 return values from a function usinng Data Destructuring
-console.log(restaurant.order(2, 0));
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach'); 
+  
+  // 11: Optional chaining
+  
+  // Checking for undefined property
+  if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+  
+  // Checking for undefined property with optional chaining (?.)
+  console.log(restaurant.openingHours.mon?.open);
+  console.log(restaurant.openingHours?.mon?.open);
+  
+  // Example 
+  const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+  for(const day of days) {
+    // console.log(day);
+    const open = restaurant.openingHours[day]?.open ?? `closed`;
+    console.log(`On ${day}, we open at ${open}!`);
+  }
+  
+  // Optional chaining for methods
+  console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
+  console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
+  
+  // optional chaining for arrays
+  const users = [{name: `nik`, email: `nik@gmail.com`}];
+  console.log(users[0]?.name ?? `array is empty`);
+  
+  const emptyUsers = [];
+  console.log(emptyUsers[0]?.email ?? `array is empty`);
+  
+  const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+  
+  for (const item of menu) {
+    console.log(item);
+  }
+  
+  for (const [i, el] of menu.entries()) {
+    // console.log(...item);
+    console.log(`${i + 1}: ${el}`);
+  }
 
-const [starter, main] = restaurant.order(2, 0);
-console.log(starter +',', main);
+// 12: Looping Objects, Object keys and Entiries
+// 12.1: Property names
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = `We are open on ${properties.length} days: `;
 
-// Receving values from a nested array
-const nested = [2, 5, [3, 13]];
-const [i, , j] = nested;
-console.log(i, j);
+for(const day of properties) {
+  openStr += `${day}, `;
+}
 
-const [x, , [y, z]] = nested;
-console.log(x, y, z);
+console.log(openStr);
 
-// Destructuring values that dont exist in the array
-let [t, v, a] = [8, 15];
-console.log(t, v, a);
+// 12.2: Property values
+const values = Object.values(openingHours);
+// console.log(values);
 
-[t=1, v=1, a=1] = [8, 15];
-console.log(t, v, a);
+// 12.3: Entrie object
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// 12.3.1: [key, value]
+for(const [key, {open, close}] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}!`);
+}
 */

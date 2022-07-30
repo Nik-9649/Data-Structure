@@ -57,12 +57,15 @@
 9: **Short Circuiting**
 
 
-10: **Optional chaining**
+10: **ES6 object literal Enhancment**
 
-11: **Looping Objects, Object keys and Entiries**
 
-11.1: Property names
+11: **Optional chaining**
 
-11.2: Property values
+12: **Looping Objects, Object keys and Entiries**
 
-11.3: Entrie object
+12.1: Property names
+
+12.2: Property values
+
+12.3: Entrie object
