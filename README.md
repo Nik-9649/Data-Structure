@@ -60,3 +60,9 @@
 10: **Optional chaining**
 
 11: **Looping Objects, Object keys and Entiries**
+
+11.1: Property names
+
+11.2: Property values
+
+11.3: Entrie object
