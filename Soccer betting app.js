@@ -54,7 +54,7 @@ const [allPlayers] = [...players1, ...players2];
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
 
 // 5.
-const {odds: {team1, x: draw, team2}} = game;
+const {odds: {team1,x: draw, team2}} = game;
 
 
 // 6.
@@ -67,5 +67,16 @@ printGoals(...game.scored);
 // 7.
 team1 < team2 && console.log(`Team one is more likely to win!`);
 team2 < team1 && console.log(`Team two is more likely to win!`);
+draw < team2 && console.log(`It's more likely to ${x}!`);
 
-// console.log(game.scored);
+//
+for(const [i, value]  of game.scored.entries()) {
+    console.log(`Goal ${i}: ${value}`);
+}
+
+for(const [team, odd] of Object.entries(game.odds)) {
+    const teamStr = team === `x` ? 'draw' : `victory ${game[team]}`;
+    console.log(team);
+    console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
