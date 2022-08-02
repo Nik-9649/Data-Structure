@@ -67,7 +67,6 @@ printGoals(...game.scored);
 // 7.
 team1 < team2 && console.log(`Team one is more likely to win!`);
 team2 < team1 && console.log(`Team two is more likely to win!`);
-draw < team2 && console.log(`It's more likely to ${x}!`);
 
 //
 for(const [i, value]  of game.scored.entries()) {
