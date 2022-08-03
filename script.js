@@ -2,7 +2,7 @@
 
 // Data needed for a later exercise
 const flights =
-'_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] // a part of enhanced object literals
@@ -28,20 +28,20 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours,  
-  
+  openingHours,
+
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  
-  orderDelivery({starterIndex = Math.trunc(Math.random() * 3 + 1), mainIndex = Math.trunc(Math.random() * 2 + 1), address, time = `06:00`}) {
+
+  orderDelivery({ starterIndex = Math.trunc(Math.random() * 3 + 1), mainIndex = Math.trunc(Math.random() * 2 + 1), address, time = `06:00` }) {
     console.log(`Order recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
-  
+
   orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicous pasta with ${ing1}, ${ing2}, and ${ing3}!!`);
   },
-  
+
   orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
@@ -387,3 +387,7 @@ for(const [key, {open, close}] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}!`);
 }
 */
+
+// 13 Sets
+const orderSet = new Set(['Pizza', 'Pasta', 'Pizza', 'Risotto', 'Pasta']);
+console.log(orderSet);
