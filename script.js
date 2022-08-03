@@ -405,3 +405,11 @@ orderSet.delete('Pasta');
 console.log(orderSet);
 // orderSet.clear();
 console.log(orderSet);
+
+for(const order of orderSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const uniqueStaff = [...new Set(staff)];
+console.log(uniqueStaff);
+console.log(staff.size);
