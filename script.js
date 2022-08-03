@@ -394,3 +394,14 @@ console.log(orderSet);
 
 console.log(new Set('nik'));
 
+console.log(orderSet.size);
+
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Pasta');
+console.log(orderSet);
+// orderSet.clear();
+console.log(orderSet);
