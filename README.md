@@ -62,7 +62,9 @@
 
 11: **Optional chaining**
 
+
 12: **Looping Objects, Object keys and Entiries**
+
 
 12.1: Property names
 
@@ -70,3 +72,5 @@
 
 12.3: Entrie object
 
+
+13: **Sets**
