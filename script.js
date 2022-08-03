@@ -391,3 +391,6 @@ for(const [key, {open, close}] of entries) {
 // 13 Sets
 const orderSet = new Set(['Pizza', 'Pasta', 'Pizza', 'Risotto', 'Pasta']);
 console.log(orderSet);
+
+console.log(new Set('nik'));
+
