@@ -77,3 +77,17 @@ for(const [team, odd] of Object.entries(game.odds)) {
     const teamStr = team === `x` ? 'draw' : `victory ${game[team]}`;
     console.log(`Odd of ${teamStr}: ${odd}`);
 }
+
+//
+
+let scorer = {};
+// vvvvv here the code
+
+for(const player of game.scored)
+{
+    if(player in scorer) ++scorer[player];
+    else scorer[player] = 1;
+    if(! (player in scorer)) scorer[player] = 0;
+}
+
+console.log(scorer);
