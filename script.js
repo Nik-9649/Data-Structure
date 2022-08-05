@@ -386,7 +386,6 @@ const entries = Object.entries(openingHours);
 for(const [key, {open, close}] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}!`);
 }
-*/
 
 // 13 Sets
 const orderSet = new Set(['Pizza', 'Pasta', 'Pizza', 'Risotto', 'Pasta']);
@@ -413,6 +412,7 @@ const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 const uniqueStaff = [...new Set(staff)];
 console.log(uniqueStaff);
 console.log(staff.size);
+*/
 
 // 14 Maps
 const rest = new Map();
