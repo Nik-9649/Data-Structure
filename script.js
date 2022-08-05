@@ -448,11 +448,32 @@ rest.delete(2);
 
 const arr = [1, 2];
 rest.set(arr, "test");
-console.log(rest);
+// console.log(rest);
 
-console.log(rest.size);
-console.log(rest.get(arr));
+// console.log(rest.size);
+// console.log(rest.get(arr));
 // rest.clear();
 // console.log(rest);
 
-console.log(rest.set(document.querySelector("h1"), "Heading"));
+rest.set(document.querySelector("h1"), "Heading");
+
+const quiz = new Map([
+  ["question", "What is the best programming language in the world"],
+  [1, "C++"],
+  [2, "Java"],
+  [3, "Javascript"],
+  [4, "Python"],
+  ["correct", "Javascript"],
+  [true, "Correct Answer :)"],
+  [false, "Try again :("],
+]);
+
+// Convert object to Map
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+for (const [key, value] of quiz) {
+  if (typeof key === "number") {
+    console.log(`Answer ${key}: ${value}`);
+  }
+}
