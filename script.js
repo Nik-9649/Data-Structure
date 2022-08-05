@@ -429,3 +429,5 @@ console.log(
     .set(false, "we are closed :(")
 );
 
+rest.get('name');
+rest.get(true);
