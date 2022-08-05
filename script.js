@@ -420,5 +420,12 @@ rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy');
 rest.set(2, 'Lisbon, Portugal');
 
-console.log(rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open', 11).set('close', 23).set(true, 'we are open :D').set(false, 'we are closed :('));
+console.log(
+  rest
+    .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+    .set("open", 11)
+    .set("close", 23)
+    .set(true, "we are open :D")
+    .set(false, "we are closed :(")
+);
 
