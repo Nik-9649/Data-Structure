@@ -480,11 +480,14 @@ for (const [key, value] of quiz) {
   }
 }
 
-const userAnswer = Number(prompt("Input the answer!"));
+// const userAnswer = Number(prompt("Input the answer!"));
 
 // const result =
 //   userAnswer === quiz.get("correct")
 //     ? console.log(quiz.get(true))
 //     : console.log(quiz.get(false));
 
-console.log(quiz.get(quiz.get("correct") === userAnswer));
+// console.log(quiz.get(quiz.get("correct") === userAnswer));
+
+// Converting Maps to arrays
+console.log([...quiz]);
