@@ -463,7 +463,7 @@ const quiz = new Map([
   [2, "Java"],
   [3, "Javascript"],
   [4, "Python"],
-  ["correct", "Javascript"],
+  ["correct", 3],
   [true, "Correct Answer :)"],
   [false, "Try again :("],
 ]);
@@ -479,3 +479,10 @@ for (const [key, value] of quiz) {
     console.log(`Answer ${key}: ${value}`);
   }
 }
+
+const userAnswer = Number(prompt("Input the answer!"));
+
+const result =
+  userAnswer === quiz.get("correct")
+    ? console.log(quiz.get(true))
+    : console.log(quiz.get(false));
