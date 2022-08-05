@@ -472,6 +472,8 @@ const quiz = new Map([
 const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
 
+// Quiz app
+console.log(quiz.get("question"));
 for (const [key, value] of quiz) {
   if (typeof key === "number") {
     console.log(`Answer ${key}: ${value}`);
