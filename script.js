@@ -413,3 +413,12 @@ const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 const uniqueStaff = [...new Set(staff)];
 console.log(uniqueStaff);
 console.log(staff.size);
+
+// 14 Maps
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Lisbon, Portugal');
+
+console.log(rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open', 11).set('close', 23).set(true, 'we are open :D').set(false, 'we are closed :('));
+
