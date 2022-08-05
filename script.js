@@ -482,7 +482,9 @@ for (const [key, value] of quiz) {
 
 const userAnswer = Number(prompt("Input the answer!"));
 
-const result =
-  userAnswer === quiz.get("correct")
-    ? console.log(quiz.get(true))
-    : console.log(quiz.get(false));
+// const result =
+//   userAnswer === quiz.get("correct")
+//     ? console.log(quiz.get(true))
+//     : console.log(quiz.get(false));
+
+console.log(quiz.get(quiz.get("correct") === userAnswer));
