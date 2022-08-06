@@ -490,6 +490,7 @@ for (const [key, value] of quiz) {
 // console.log(quiz.get(quiz.get("correct") === userAnswer));
 
 // Converting Maps to arrays
+
 console.log([...quiz]);
 
 console.log([...quiz.keys()]);
