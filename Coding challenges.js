@@ -296,3 +296,21 @@ team2 < team1 && console.log(`Team two is more likely to win!`);
 // console.log(game.scored);
 
 */
+console.log("-----Coding challenge 3-----");
+const gameEvents = new Map([
+  [17, "⚽ GOAL"],
+  [36, "🔁 Substitution"],
+  [47, "⚽ GOAL"],
+  [61, "🔁 Substitution"],
+  [64, "🟨 Yellow card"],
+  [69, "🟥 Red card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽ GOAL"],
+  [80, "⚽ GOAL"],
+  [92, "🟨 Yellow card"],
+]);
+
+const uniqueEvents = new Set([...gameEvents.values()]);
+const events = [...uniqueEvents];
+console.log(events);
