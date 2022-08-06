@@ -491,3 +491,7 @@ for (const [key, value] of quiz) {
 
 // Converting Maps to arrays
 console.log([...quiz]);
+
+console.log([...quiz.keys()]);
+console.log([...quiz.values()]);
+console.log([...quiz.entries()]);
