@@ -458,7 +458,7 @@ rest.set(arr, "test");
 rest.set(document.querySelector("h1"), "Heading");
 
 const quiz = new Map([
-  ["question", "What is the best programming language in the world"],
+  ["question", "What is the best programming language in the world?"],
   [1, "C++"],
   [2, "Java"],
   [3, "Javascript"],
@@ -496,3 +496,34 @@ console.log([...quiz]);
 console.log([...quiz.keys()]);
 console.log([...quiz.values()]);
 console.log([...quiz.entries()]);
+
+//
+function Person(personName, personAge) {
+  this.name = personName;
+  this.age = personAge;
+}
+
+const personObject = {
+  name: "nik",
+  age: 20,
+
+  get getName() {
+    return this.name;
+  },
+};
+console.log(personObject.getName);
+
+const p1 = new Person("nik", 20);
+const p2 = new Person("healer", 22);
+
+console.log(p1.name);
+console.log(p2.name);
+// p2.greet();
+
+p1.gender = "male";
+p1.greet = function () {
+  console.log(`Hello ${this.name}!`);
+};
+
+console.log(p1.gender);
+p1.greet();
