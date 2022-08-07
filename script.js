@@ -518,6 +518,7 @@ const p2 = new Person("healer", 22);
 
 console.log(p1.name);
 console.log(p2.name);
+
 // p2.greet();
 
 p1.gender = "male";
