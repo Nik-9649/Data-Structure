@@ -1,7 +1,7 @@
 # **Data Structure repo 27/July/2022**
 
 ## **[Script file](https://github.com/Nik-9649/Data-Structure/blob/main/script.js/) includes all the pratices which includes:**
-(_most of the use case is commented out to avoid conflict_)
+(_the majority of the scenarios are commented out to prevent any conflicts_)
 
 
 1: **Destructuring objects**
